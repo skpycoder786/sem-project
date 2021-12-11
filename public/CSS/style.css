@@ -1,0 +1,79 @@
+
+body::before {
+  display: block;
+  content: '';
+  height: 60px;
+}
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}  
+
+.TestM{
+    padding: 4%;
+    margin: auto;
+}
+.TestSize{
+    width: 85%;
+    padding-left: 20%;
+}
+
+.RLarrow-color{
+  background-color: rgb(112, 112, 98);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: scale-down;
+} 
+
+  #map{
+    height: 65%;
+  }
+  #Address{
+    height: 35%;
+  }
+
+  .IconD{
+    font-size:20px;
+    color: rgb(255, 195, 11);
+  }
+  .IconD:hover{
+    color: rgb(255, 195, 11);
+  }
+
+  .arrow-color{
+    color: rgb(255, 195, 11);
+  }
+
+  .ModelLink{
+    text-decoration: none; 
+    color: black;
+  }
+  .ModelLink:hover{
+    color: black;
+  }
+
+  #GiveOTP{
+    display: none;
+  }
+
+.developer{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.developer-card{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
