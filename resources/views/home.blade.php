@@ -38,12 +38,11 @@
     @section('testimonial')
 
         <!-- Testimonial -->
-        <section>
             <div class="splide splide1 TestM container bg-light text-dark">
                 <div class="splide__track">
                 <ul class="splide__list">
                     <li class="splide__slide">
-                    <div class="carousel-item TestSize active">
+                    <div class="TestSize active">
                         <h2>
                         Where does it come from?
                         </h2>
@@ -53,7 +52,7 @@
                     </div>
                     </li>
                     <li class="splide__slide">
-                    <div class="carousel-item TestSize active">
+                    <div class="TestSize active">
                         <h2>
                         Where does it come from?
                         </h2>
@@ -63,7 +62,7 @@
                     </div>
                     </li>
                     <li class="splide__slide">
-                    <div class="carousel-item TestSize active">
+                    <div class="TestSize active">
                         <h2>
                         Where does it come from?
                         </h2>
@@ -75,7 +74,6 @@
                 </ul>
                 </div>
             </div>
-        </section>
 
     @endsection
 

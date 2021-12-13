@@ -12,6 +12,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
     var splide1 = new Splide( '.splide1',{
       type   : 'loop',
       padding: { left: 10, right: 10 },
+      outerHeight: "10px",
       autoplay: true,  
     } );
     splide1.mount();
