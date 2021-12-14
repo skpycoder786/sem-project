@@ -40,7 +40,7 @@
 
     <!-- DashBord Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-warning py-2 px-4 sticky-top" id="DashNav">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button id="D_Toggler_btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -90,12 +90,12 @@
                 <li class="list-group-item">
                   <i class="material-icons IconD2">&#xe0d0;</i>
                   &nbsp; rkbayal@gmail.com
-                  <button type="button" class="btn btn-warning Update_button">UPDATE</button>
+                  <button id="D_Email_update_btn" type="button" class="btn btn-warning Update_button">UPDATE</button>
                 </li>
                 <li class="list-group-item">
                   <i class="material-icons IconD2">&#xe0cf;</i>
                    &nbsp; 9460494327
-                   <button type="button" class="btn btn-warning Update_button">UPDATE</button>
+                   <button id="D_Mobile_update_btn" type="button" class="btn btn-warning Update_button">UPDATE</button>
                 </li>
               </ul>
             </div>
@@ -105,7 +105,7 @@
           <div class="col-md-6"><br class="d-sm">
             <h2 class="d-flex justify-content-center text-warning"> TO-DO LIST </h2>
             <div>
-              <button type="button" data-bs-toggle="modal" data-bs-target="#Modal6" class="btn btn-warning Update_button Add_button">+ ADD SCHEDULE</button>
+              <button id="D_Add_schedule_btn" type="button" data-bs-toggle="modal" data-bs-target="#Modal6" class="btn btn-warning Update_button Add_button">+ ADD SCHEDULE</button>
               <div id="table_div">
                 <table style="height: 10px;" class="table bg-light table-wrapper-scroll-y my-custom-scrollbar ToDo_table">
                   <thead>
@@ -115,21 +115,21 @@
                       <th class="C_Action" scope="col">Action</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody">
                     <tr>                     
                       <td class="C_Task"><textarea class="task" placeholder="add task" disabled></textarea></td>                   
                       <td class="C_Status"><span class="badge rounded-pill bg-success badge_size">Completed</span></td>
-                      <td class="C_Action"><button type="button" onclick="ChangeColor(this)" id="b1" class="btn btn-warning Done_button">Done</button></td>
+                      <td class="C_Action"><button id="D_Add_task_btn" type="button" onclick="ChangeColor(this)" id="b1" class="btn btn-warning Done_button">Done</button></td>
                     </tr>
                     <tr>
                       <td class="C_Task"><textarea class="task" placeholder="add task" disabled></textarea></td>
                       <td class="C_Status"><span class="badge rounded-pill bg-success badge_size">Completed</span></td>
-                      <td class="C_Action"><button type="button" onclick="ChangeColor(this)" id="b2" class="btn btn-warning Done_button">Done</button></td>
+                      <td class="C_Action"><button id="D_Add_task_btn" type="button" onclick="ChangeColor(this)" id="b2" class="btn btn-warning Done_button">Done</button></td>
                     </tr>
                     <tr>                      
                       <td class="C_Task"><textarea class="task" placeholder="add task" disabled></textarea></td>
                       <td class="C_Status"><span class="badge rounded-pill bg-danger badge_size">Incomplete</span></td>
-                      <td class="C_Action"><button type="button" onclick="ChangeColor(this)" id="b3" class="btn btn-warning Done_button">Done</button></td>
+                      <td class="C_Action"><button id="D_Add_task_btn" type="button" onclick="ChangeColor(this)" id="b3" class="btn btn-warning Done_button">Done</button></td>
                     </tr>
                   </tbody>    
                 </table>
@@ -165,23 +165,23 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Add Student</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button id="M4_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="" method="get">
+            <form id="M4_Add_student_form" action="Dashboard.html" method="get">
               <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Full name">
+                <input name="M4_Sname_inp" type="text" class="form-control" id="exampleFormControlInput2" placeholder="Full name">
               </div>
               <div class="mb-3">
-                <input type="email" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Student Email">
+                <input name="M4_Semail_inp" type="email" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Student Email">
               </div>
               <div class="mb-3">
-                <input type="number" class="form-control" id="exampleFormControlInput2" placeholder="Roll number">
+                <input name="M4_SrollNo_inp" type="number" class="form-control" id="exampleFormControlInput2" placeholder="Roll number">
               </div>
             </form> 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-warning">
+            <button id="M4_Add_Student_btn" type="button" class="btn btn-warning">
               <a href="Dashboard.html" class="ModelLink"> 
                 ADD
               </a>
@@ -197,17 +197,17 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Remove Student</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button id="M5_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">        
-            <form action="" method="get">
+            <form id="M5_Remove_student_form" action="Dashboard.html" method="get">
               <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="Student Email">
+                <input name="M5_Semail_inp" type="email" class="form-control" id="exampleFormControlInput2" placeholder="Student Email">
               </div>
             </form> 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-warning">
+            <button id="M5_Remove_Student_btn" type="button" class="btn btn-warning">
               <a href="Dashboard.html" class="ModelLink"> 
                 REMOVE
               </a>
@@ -223,17 +223,17 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Add Daily Tasks</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button id="M6_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">        
-            <form action="" method="get">
+            <form id="M6_Task_form" action="Dashboard.html" method="get">
               <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Write Your Task Here">
+                <input name="M6_Task_inp" type="text" class="form-control" id="exampleFormControlInput2" placeholder="Write Your Task Here">
               </div>
             </form> 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-warning">
+            <button id="M6_Add_task_btn" type="button" class="btn btn-warning">
               <a href="Dashboard.html" class="ModelLink"> 
                 ADD
               </a>
