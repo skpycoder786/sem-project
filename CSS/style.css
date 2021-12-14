@@ -152,4 +152,6 @@ body::before {
  width: 20%;
 }
 
-
+.Subject_select{
+  background-color: rgb(240, 231, 231);
+}

@@ -300,22 +300,30 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="/Dashboard.html" method="get">
+            <form id="Login_form" action="/Dashboard.html" method="get">
               <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="User Email">
+                <input type="email" class="form-control" id="User_email" placeholder="User Email">
               </div>
               <div class="mb-3">
-                <input type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Password">
+                <input type="password" minlength="8" class="form-control" id="User_password" placeholder="Password">
+              </div>
+              <div class="mb-3">
+                <select id="Subject" class="form-control Subject_select">
+                  <option value="" selected hidden>Select Class Subject</option>
+                  <option value="OS">Operating System</option>
+                  <option value="CN">Computer Network</option>
+                  <option value="DBMS">DataBase Management System</option>
+                </select>
               </div>
             </form> 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <button id="Forget_password_button" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               <a id="closemodal1" class="ModelLink" style="color: white;" href="" data-bs-toggle="modal" data-bs-target="#Modal2">
                 Forget Password
               </a>
             </button>
-            <button type="button" class="btn btn-warning">
+            <button id="Login_button" type="button" class="btn btn-warning">
               <a href="Dashboard.html" class="ModelLink"> 
                 Login
               </a>
@@ -333,16 +341,18 @@
             <h6 class="modal-title" id="exampleModalLabel">Provide Account Details</h6>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+
           <div class="modal-body">
-            <form action="/Dashboard.html" method="get">
+            <form id="OTP_form" action="/Dashboard.html" method="get">
               <div class="mb-3">
                 <p>To recover the password for your account, please provide us your registered email</p>
                 <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="User Email"><br>
                 <button 
                   type="button"
+                  id="Send_OTP_button"
                   class="ModelLink btn btn-warning"
                   onclick="Add_OTP_div()"
-                  >
+                >
                   Send OTP
                 </button><br>
               </div>
@@ -351,6 +361,7 @@
                 <input type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Enter OTP"><br>
                 <button 
                   type="button" 
+                  id="Submit_OTP"
                   class="btn btn-warning" 
                   data-bs-dismiss="modal"
                   onclick="Remove_OTP_div()">

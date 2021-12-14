@@ -50,8 +50,8 @@
               Student
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal1">Add Student</a>
-              <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal2">Remove Student</a>
+              <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal4">Add Student</a>
+              <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal5">Remove Student</a>
               <a class="dropdown-item DropActive" href="#">Get Students Data</a>
             </div>
           <li class="nav-item active">
@@ -105,7 +105,7 @@
           <div class="col-md-6"><br class="d-sm">
             <h2 class="d-flex justify-content-center text-warning"> TO-DO LIST </h2>
             <div>
-              <button type="button" class="btn btn-warning Update_button Add_button">+ ADD SCHEDULE</button>
+              <button type="button" data-bs-toggle="modal" data-bs-target="#Modal6" class="btn btn-warning Update_button Add_button">+ ADD SCHEDULE</button>
               <div id="table_div">
                 <table style="height: 10px;" class="table bg-light table-wrapper-scroll-y my-custom-scrollbar ToDo_table">
                   <thead>
@@ -160,7 +160,7 @@
     
 
     <!-- Modal-4 for Add Student -->
-    <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -192,7 +192,7 @@
     </div>
     
     <!-- Modal-5 for Remove Student -->
-    <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="Modal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -210,6 +210,32 @@
             <button type="button" class="btn btn-warning">
               <a href="Dashboard.html" class="ModelLink"> 
                 REMOVE
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal-6 for Add Task -->
+    <div class="modal fade" id="Modal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Daily Tasks</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">        
+            <form action="" method="get">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Write Your Task Here">
+              </div>
+            </form> 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning">
+              <a href="Dashboard.html" class="ModelLink"> 
+                ADD
               </a>
             </button>
           </div>
