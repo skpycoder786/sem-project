@@ -181,25 +181,33 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Faculty Login</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button id="M1_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="/Dashboard.html" method="get">
+            <form id="M1_Login_form" action="/Dashboard.html" method="get">
               <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="User Email">
+                <input name="M1_Email_inp" type="email" class="form-control" id="" placeholder="User Email">
               </div>
               <div class="mb-3">
-                <input type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Password">
+                <input name="M1_Password_inp" type="password" minlength="8" class="form-control" id="" placeholder="Password">
+              </div>
+              <div class="mb-3">
+                <select name="M1_Subject_inp" id="Class_subject" class="form-control Subject_select">
+                  <option value="" selected hidden>Select Class Subject</option>
+                  <option value="OS">Operating System</option>
+                  <option value="CN">Computer Network</option>
+                  <option value="DBMS">DataBase Management System</option>
+                </select>
               </div>
             </form> 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <button id="M1_Forget_password_btn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               <a id="closemodal1" class="ModelLink" style="color: white;" href="" data-bs-toggle="modal" data-bs-target="#Modal2">
                 Forget Password
               </a>
             </button>
-            <button type="button" class="btn btn-warning">
+            <button id="M1_Login_btn" type="button" class="btn btn-warning">
               <a href="Dashboard.html" class="ModelLink"> 
                 Login
               </a>
@@ -215,33 +223,36 @@
         <div class="modal-content">
           <div class="modal-header">
             <h6 class="modal-title" id="exampleModalLabel">Provide Account Details</h6>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button id="M2_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+
           <div class="modal-body">
-            <form action="/Dashboard.html" method="get">
+            <form id="M2_OTP_form" action="/Dashboard.html" method="get">
               <div class="mb-3">
                 <p>To recover the password for your account, please provide us your registered email</p>
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="User Email"><br>
+                <input name="M2_email_inp" type="email" class="form-control" id="exampleFormControlInput2" placeholder="User Email"><br>
                 <button 
                   type="button"
+                  id="M2_Send_OTP_btn"
                   class="ModelLink btn btn-warning"
                   onclick="Add_OTP_div()"
-                  >
+                >
                   Send OTP
                 </button><br>
               </div>
               <div id="GiveOTP" class="mb-3 form-control">
                 <p>Check your email. You must have received an email with the OTP</p> 
-                <input type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Enter OTP"><br>
+                <input name="M2_EnterOTP_inp" type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Enter OTP"><br>
                 <button 
                   type="button" 
+                  id="M2_SubmitOTP_btn"
                   class="btn btn-warning" 
                   data-bs-dismiss="modal"
                   onclick="Remove_OTP_div()">
-                <a href="" class="ModelLink" data-bs-toggle="modal" data-bs-target="#Modal3">
-                  Submit
-                </a>
-        </button>
+                  <a href="" class="ModelLink" data-bs-toggle="modal" data-bs-target="#Modal3">
+                    Submit
+                  </a>
+                </button>
               </div>
             </form> 
           </div>
@@ -255,17 +266,17 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Reset your password</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button id="M3_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="/Dashboard.html" method="get">
+            <form id="M3_ResetP_form" action="/Dashboard.html" method="get">
               <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="New password">
+                <input name="M3_NewPassword_inp" type="email" class="form-control" id="exampleFormControlInput2" placeholder="New password">
               </div>
               <div class="mb-3">
-                <input type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Confirm password">
+                <input name="M3_ConfirmPassword_inp" type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Confirm password">
               </div>
-              <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
+              <button id="M3_Submit_btn" type="button" class="btn btn-warning" data-bs-dismiss="modal">
                 <a href="" class="ModelLink" data-bs-toggle="modal" data-bs-target="#Modal1">
                   Submit
                 </a>
