@@ -19,8 +19,11 @@
     <link href="/images/logo.ico" rel="icon" type="image/x-icon" />
 
     <script src="https://www.jsdelivr.com/package/npm/@splidejs/splide"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="{{asset('CSS/splide.min.css')}}">
     <script src="{{asset('JS/splide.min.js')}}"></script>
+    <script src="{{asset('JS/notify.min.js')}}"></script>
     <title>Home</title>
   </head>
 
@@ -56,6 +59,16 @@
                 </div>
             </div>
         </nav>
+
+        @if ($errors->any())
+        
+          @foreach ($errors->all() as $error)
+            <?php echo "<script>
+              $.notify(" ."'". $error. "'" . ", 'error');
+            </script>"; ?>
+          @endforeach
+            
+        @endif
 
     <br>
 

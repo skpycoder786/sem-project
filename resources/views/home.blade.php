@@ -1,4 +1,4 @@
-@extends('header') 
+@extends('header')
 
     @section('introduction')
 
@@ -184,12 +184,13 @@
             <button id="M1_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="M1_Login_form" action="/Dashboard.html" method="get">
+            <form id="M1_Login_form" action="/login" method="post">
+              @csrf
               <div class="mb-3">
                 <input name="M1_Email_inp" type="email" class="form-control" id="" placeholder="User Email">
               </div>
               <div class="mb-3">
-                <input name="M1_Password_inp" type="password" minlength="8" class="form-control" id="" placeholder="Password">
+                <input name="M1_Password_inp" type="password" class="form-control" id="" placeholder="Password">
               </div>
               <div class="mb-3">
                 <select name="M1_Subject_inp" id="Class_subject" class="form-control Subject_select">
@@ -199,19 +200,13 @@
                   <option value="DBMS">DataBase Management System</option>
                 </select>
               </div>
+              <button id="M1_Forget_password_btn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                <a id="closemodal1" class="ModelLink" style="color: white;" href="" data-bs-toggle="modal" data-bs-target="#Modal2">
+                  Forget Password
+                </a>
+              </button>
+              <input type="submit" id="M1_Login_btn" class="btn btn-warning" value="Login" style="float: right;">
             </form> 
-          </div>
-          <div class="modal-footer">
-            <button id="M1_Forget_password_btn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              <a id="closemodal1" class="ModelLink" style="color: white;" href="" data-bs-toggle="modal" data-bs-target="#Modal2">
-                Forget Password
-              </a>
-            </button>
-            <button id="M1_Login_btn" type="button" class="btn btn-warning">
-              <a href="Dashboard.html" class="ModelLink"> 
-                Login
-              </a>
-            </button>
           </div>
         </div>
       </div>

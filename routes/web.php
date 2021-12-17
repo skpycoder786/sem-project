@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\generalController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,12 @@ Route::get('/', function () {
 Route::get('/home', function() {
     return 'shrinit';
 });
+
+// Route::get('/check-pass', function() {
+//     if (Hash::check('12345', '$2a$12$/JdmGuZ8/w39E/D3XhIpee.yrbl8c2nHWUoBjweVOpvkyHwu5HFpO')) {
+//         // The passwords match...
+//         echo "password match";
+//     }
+// });
+
+Route::post('login', [generalController::class, 'login']);
