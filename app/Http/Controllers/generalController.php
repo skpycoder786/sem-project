@@ -21,7 +21,7 @@ class generalController extends Controller
 
         $user = teacher::where('email', $req->M1_Email_inp)->first();
         if($user) {
-            return redirect('dashboard')->with('$user');
+            view('dashboard')->with(compact('user'));
         }
     }
 }

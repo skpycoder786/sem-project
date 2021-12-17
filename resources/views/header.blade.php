@@ -238,6 +238,8 @@
       </div>
     </section> -->
 
+    @yield('dashboard')
+
 
     <!-- Contact and Map
     <section class="p-5">
