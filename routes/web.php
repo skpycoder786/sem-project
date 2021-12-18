@@ -31,6 +31,4 @@ Route::get('/home', function() {
 // });
 
 Route::post('login', [generalController::class, 'login']);
-Route::get('dashboard', function() {
-    return view('dashboard');
-});
+Route::get('sendOTP', [generalController::class, 'sendOTP']);

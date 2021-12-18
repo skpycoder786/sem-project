@@ -222,10 +222,10 @@
           </div>
 
           <div class="modal-body">
-            <form id="M2_OTP_form" action="/Dashboard.html" method="get">
+            <form id="M2_OTP_form">
               <div class="mb-3">
                 <p>To recover the password for your account, please provide us your registered email</p>
-                <input name="M2_email_inp" type="email" class="form-control" id="exampleFormControlInput2" placeholder="User Email"><br>
+                <input name="M2_Email_inp" type="email" class="form-control" id="M2_email_inp" placeholder="User Email"><br>
                 <button 
                   type="button"
                   id="M2_Send_OTP_btn"

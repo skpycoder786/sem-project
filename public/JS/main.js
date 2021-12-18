@@ -1,4 +1,14 @@
 function Add_OTP_div() {
+    var email = document.getElementById('M2_email_inp').value;
+    var data = {
+      'email' : email
+    };
+    console.log(email);
+    $.get("sendOTP", data, function(data){
+        console.log(data);
+        // Display the returned data in browser
+        // $("#result").html(data);
+    });
     document.getElementById('GiveOTP').style.display="block";
   }
 

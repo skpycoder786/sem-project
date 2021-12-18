@@ -2,6 +2,10 @@
 
 @section('dashboard')
 
+    @if (!empty($user))
+        
+    @endif
+
     <!-- DashBord Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-warning py-2 px-4 sticky-top" id="DashNav">
       <button id="D_Toggler_btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,20 +49,20 @@
           <div class="col-md-6">
             <div class="card bg-warning my-2" style="width: 18rem;">
               <img src="images/RKB.png" class="p-3" alt="Dr. R.K. Bayal">
-              <h5 class="mb-3 d-flex justify-content-center">Dr. R.K. Bayal</h5>
+              <h5 class="mb-3 d-flex justify-content-center">{{$user->name}}</h5>
               <ul class="list-group bg-dark flex-column">
                 <li class="list-group-item">
                   <i class="material-icons IconD2">&#xe8a6;</i>
-                  &nbsp; Associate Professor
+                  &nbsp; {{$user->position}}
                 </li>
                 <li class="list-group-item">
                   <i class="material-icons IconD2">&#xe0d0;</i>
-                  &nbsp; rkbayal@gmail.com
+                  &nbsp; {{$user->email}}
                   <button id="D_Email_update_btn" type="button" class="btn btn-warning Update_button">UPDATE</button>
                 </li>
                 <li class="list-group-item">
                   <i class="material-icons IconD2">&#xe0cf;</i>
-                   &nbsp; 9460494327
+                   &nbsp; {{$user->phone}}
                    <button id="D_Mobile_update_btn" type="button" class="btn btn-warning Update_button">UPDATE</button>
                 </li>
               </ul>

@@ -70,6 +70,12 @@
             
         @endif
 
+        @if(!empty($user))
+        <?php echo "<script>
+              $.notify(" ."'". $user->msg. "'" . ", 'success');
+            </script>"; ?>
+        @endif
+
     <br>
 
     @yield('introduction')
