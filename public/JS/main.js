@@ -1,3 +1,5 @@
+var otp;
+
 function Add_OTP_div() {
     var email = document.getElementById('M2_email_inp').value;
     var data = {
@@ -5,14 +7,20 @@ function Add_OTP_div() {
     };
     console.log(email);
     $.get("sendOTP", data, function(data){
-        console.log(data);
-        // Display the returned data in browser
-        // $("#result").html(data);
+      otp = data.otp;
     });
     document.getElementById('GiveOTP').style.display="block";
   }
 
 function Remove_OTP_div() {
+    var input = document.getElementById('M2_EnterOTP_inp').value;
+    console.log(typeof(input),typeof(otp));
+    if(input === str(otp)) {
+      // $.get("sendOTP", data, function(data){
+      //   otp = data.otp;
+      // });
+      $.notify("OTP match has been done successfully", "success");
+    }
     document.getElementById('GiveOTP').style.display="none";
   }  
   

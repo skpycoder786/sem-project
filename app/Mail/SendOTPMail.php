@@ -33,7 +33,7 @@ class SendOTPMail extends Mailable
         
         // return $this->view('SendOTPMail')->with(['body' => $this->body]);
         // $this->markdown('SendOTPMail');
-        return $this->markdown('emails.SendOTP')->with(['body' => $this->body]);
+        return $this->markdown('sendOTP')->with(['body' => $this->body]);
     }
 }
  

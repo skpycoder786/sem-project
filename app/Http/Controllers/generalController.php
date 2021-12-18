@@ -41,5 +41,8 @@ class generalController extends Controller
             'otp'   => $otp
         ];
         Mail::to($req->email)->send(new SendOTPMail($body));
+        return response()->json([
+            'otp' => $otp
+        ]);
     }
 }

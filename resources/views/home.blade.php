@@ -38,7 +38,7 @@
     @section('testimonial')
 
         <!-- Testimonial -->
-            <div class="splide splide1 TestM container bg-light text-dark">
+            <!-- <div class="splide splide1 TestM container bg-light text-dark">
                 <div class="splide__track">
                 <ul class="splide__list">
                     <li class="splide__slide">
@@ -73,7 +73,45 @@
                     </li>
                 </ul>
                 </div>
-            </div>
+            </div> -->
+    <section>
+      <div class="splide splide1 TestM container bg-light text-dark">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <div class="carousel-item TestSize active">
+                <h2>
+                  Where does it come from?
+                </h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="carousel-item TestSize active">
+                <h2>
+                  Where does it come from?
+                </h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="carousel-item TestSize active">
+                <h2>
+                  Where does it come from?
+                </h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     @endsection
 
@@ -237,16 +275,14 @@
               </div>
               <div id="GiveOTP" class="mb-3 form-control">
                 <p>Check your email. You must have received an email with the OTP</p> 
-                <input name="M2_EnterOTP_inp" type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Enter OTP"><br>
+                <input name="M2_EnterOTP_inp" type="password" minlength="8" class="form-control" id="M2_EnterOTP_inp" placeholder="Enter OTP"><br>
                 <button 
                   type="button" 
                   id="M2_SubmitOTP_btn"
                   class="btn btn-warning" 
                   data-bs-dismiss="modal"
                   onclick="Remove_OTP_div()">
-                  <a href="" class="ModelLink" data-bs-toggle="modal" data-bs-target="#Modal3">
                     Submit
-                  </a>
                 </button>
               </div>
             </form> 
