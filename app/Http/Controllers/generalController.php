@@ -27,6 +27,7 @@ class generalController extends Controller
         $user = teacher::where('email', $req->M1_Email_inp)->first();
         if($user) {
             $user['msg'] = 'Login Successfull';
+            Session()->forget('expire');
             session(['id' => $user->id]);
             return redirect('dashboard');
             // return Redirect::route('generalController.dashboard')->with(['user' => $user]);

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\generalController;
+use App\Http\Middleware\CheckLogin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -20,9 +21,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/home', function() {
-    return 'shrinit';
-});
+// Route::get('/home', function() {
+//     return 'shrinit';
+// });
 
 // Route::get('/check-pass', function() {
 //     if (Hash::check('12345', '$2a$12$/JdmGuZ8/w39E/D3XhIpee.yrbl8c2nHWUoBjweVOpvkyHwu5HFpO')) {
@@ -32,13 +33,17 @@ Route::get('/home', function() {
 // });
 
 Route::post('login', [generalController::class, 'login']);
-Route::get('dashboard', [generalController::class, 'dashboard']);
 Route::get('sendOTP', [generalController::class, 'sendOTP']);
 Route::get('confirmPass', [generalController::class, 'confirmPass']);
-Route::get('addTask', [generalController::class, 'addTask']);
-Route::get('updateStatus', [generalController::class, 'updateStatus']);
-Route::get('deleteTask', [generalController::class, 'deleteTask']);
+
+Route::middleware([CheckLogin::class])->group(function(){
+    Route::get('dashboard', [generalController::class, 'dashboard']);
+    Route::get('addTask', [generalController::class, 'addTask']);
+    Route::get('updateStatus', [generalController::class, 'updateStatus']);
+    Route::get('deleteTask', [generalController::class, 'deleteTask']);
+});
+
 Route::get('logout', function() {
     Session()->forget('id');
-    return view('home');
+    return redirect('/');
 });

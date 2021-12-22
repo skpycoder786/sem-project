@@ -84,224 +84,195 @@
 
     <br>
 
-    @yield('introduction')
-    <!-- Introduction
-    <section class="bg-dark text-light p-7 p-lg-0 pt-lg-5 text-center text-sm-start">
-      <div class="container" style="padding-bottom: 2%;">
-        <div class="d-sm-flex align-items-center justify-content-between flex-container">
-          <div class="row align-items-center justify-content-between">
-            <div class="col-md-6">
-              <img
-                class="img-fluid img-thumbnail w-40 "
-                src="images/CSE_D.png"
-                alt="CSE Departments"
-              />
+    
+    <!-- DashBord Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning py-2 px-4 sticky-top" id="DashNav">
+      <button id="D_Toggler_btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Student
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal4">Add Student</a>
+              <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal5">Remove Student</a>
+              <a class="dropdown-item DropActive" href="#">Get Students Data</a>
             </div>
-            <div class="col-md-6"><br class="d-sm">
-              <h1>Hello <span class="text-warning"> Everyone !! </span></h1>
-              <p class="lead my-4">
-                We are the Students of CSE departments and developed this web application for helping our teachers in maintaining students's attendence record in an easy way.
-                Here, Teacher will be referred to as the “User”, User will be responsible to update his profile as well as manage his daily activities. Users will 
-                have the authority to add and remove students and update their details. Each User maintains attendance of students and also generates month wise 
-                reports of the same.
-              </p>
-              <button type="button" class="btn btn-warning"style="margin-bottom: 10px;">
-                <a target="blank" style="text-decoration: none; color: black;" href="https://www.rtu.ac.in/index/view_menudata.php?page=Department-of-CSE385"> 
-                  Visit CSE Departments
-                </a>
-              </button>
+          <li class="nav-item active">
+            <a class="nav-link btn btn-outline-dark mx-3" id="TakeA" href="#">Take Attendence</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Generate Report
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item DropActive" href="#">Today's Report</a>
+              <a class="dropdown-item DropActive" href="#">Weekly Report</a>
+              <a class="dropdown-item DropActive" href="#">Monthly Report</a>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
-    </section> -->
-
-    @yield('testimonial')
-    <!-- Testimonial
-    <section>
-      <div class="splide splide1 TestM container bg-light text-dark">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="carousel-item TestSize active">
-                <h2>
-                  Where does it come from?
-                </h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="carousel-item TestSize active">
-                <h2>
-                  Where does it come from?
-                </h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="carousel-item TestSize active">
-                <h2>
-                  Where does it come from?
-                </h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section> -->
-
-    @yield('developer')
-    <!-- Developer Team
-    <section id="instructors" class="p-5 bg-warning">
-      <h2 class="text-center text-white">Developer Team</h2><br>
-      <div class="splide splide2 developer">
-        <div class="splide__track">
-          <ul class="splide__list">
-
-            <li class="splide__slide">
-              <div class="card bg-light developer-card">
-                <div class="card-body text-center">
-                  <img
-                    src="images/shri.png"
-                    class="card-img-top rounded-circle mb-3"
-                    alt=""
-                  />
-                  <h3 class="card-title mb-3">Shrinit Goyal</h3>
-                  <div class="">
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    </p>
-                  </div>               
-                  <a target="blank" href="https://www.linkedin.com/in/shrinitg"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                  <a target="blank" href="https://github.com/shrinitg"><i class="bi bi-github text-dark mx-1"></i></a>
-                </div>
-              </div>
-            </li>
-
-            <li class="splide__slide">
-              <div class="card bg-light developer-card">
-                <div class="card-body text-center">
-                  <img
-                    src="images/Sunny.png"
-                    class="card-img-top rounded-circle mb-3"
-                    alt="Sunny"
-                  />
-                  <h3 class="card-title mb-3">Sunny Katariya</h3>
-                  <div class="">
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    </p>
-                  </div>  
-                  <a target="blank" href="https://www.linkedin.com/in/sunny-katariya-72b5a1171/"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                  <a target="blank" href="https://github.com/skpycoder786"><i class="bi bi-github text-dark mx-1"></i></a>
-                </div>
-              </div>
-            </li>
-
-            <li class="splide__slide">
-              <div class="card bg-light developer-card">
-                <div class="card-body text-center">
-                  <img
-                    src="images/Suraj.png"
-                    class="card-img-top rounded-circle mb-3"
-                    alt="Suraj"
-                  />
-                  <h3 class="card-title mb-3">Suraj Lalwani</h3>
-                  <div class="">
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    </p>
-                  </div>  
-                  <a target="blank" href="https://www.linkedin.com/in/suraj-lalwani-b96899195"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                  <a target="blank" href="https://github.com/Suraj246-lgtm"><i class="bi bi-github text-dark mx-1"></i></a>
-                </div>
-              </div>
-            </li>
-            
-            <li class="splide__slide">
-              <div class="card bg-light developer-card">
-                <div class="card-body text-center">
-                  <img
-                    src="images/Rakesh.png"
-                    class="card-img-top rounded-circle mb-3"
-                    alt="Rakesh"
-                  />
-                  <h3 class="card-title mb-3">Rakesh Nagar</h3>
-                  <div class="">
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    </p>
-                  </div>              
-                  <a target="blank" href="https://www.linkedin.com/mwlite/in/rakesh-kr-nagar-085417171"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                  <a target="blank" href="https://github.com/white-shadow-227"><i class="bi bi-github text-dark mx-1"></i></a>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </section> -->
-
-    @yield('dashboard')
+    </nav>
 
 
-    <!-- Contact and Map
-    <section class="p-5">
+    <!-- About Teacher and To-Do List -->
+    <section id="Main_container" class="p-4">
       <div class="container">
         <div class="row g-4">
-          <div class="col-md">
-            <h2> Any Query ?</h2><br>
-            <form action="/action_page.php" method="get">
-              <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Full Name">
-              </div>
-              <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-              </div>
-              <div class="mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write your query here"></textarea>
-              </div>
-              <button type="button" class="btn btn-warning">
-                <a class="ModelLink" href="#"> 
-                  Submit
-                </a>
-              </button>  
-            </form>       
-          </div>
-          <div class="col-md">
-            <h2>Find Us Here</h2><br>
-            <div id="map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d451.47698427302345!2d75.8071423!3d25.1419151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x18fd9a07f084bb2b!2sComputer%20Center!5e0!3m2!1sen!2sin!4v1638540508697!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div><br>
-            <div id="Address" class="d-sm">
-              <h6>
-                <i class="material-icons IconD">&#xe55f;</i> 
-                Room No.205, Computer Center, UD-RTU, Kota(Rajasthan)
-              </h6>
-              <h6>
-                <i class="material-icons IconD">&#xe0e1;</i>
-                StudentSuport@rtu.ac.in
-              </h6>
-              <h6>
-                <i class="material-icons IconD">&#xe0b0;</i>
-                0744 4586257
-              </h6><br><br> 
+          
+          <!-- About Teacher -->
+          <div class="col-md-6">
+            <div class="card bg-warning my-2" style="width: 18rem;">
+              <img src="images/RKB.png" class="p-3" alt="Dr. R.K. Bayal">
+              <h5 class="mb-3 d-flex justify-content-center">{{$user->name}}</h5>
+              <ul class="list-group bg-dark flex-column">
+                <li class="list-group-item">
+                  <i class="material-icons IconD2">&#xe8a6;</i>
+                  &nbsp; {{$user->position}}
+                </li>
+                <li class="list-group-item">
+                  <i class="material-icons IconD2">&#xe0d0;</i>
+                  &nbsp; {{$user->email}}
+                  <button id="D_Email_update_btn" type="button" class="btn btn-warning Update_button">UPDATE</button>
+                </li>
+                <li class="list-group-item">
+                  <i class="material-icons IconD2">&#xe0cf;</i>
+                   &nbsp; {{$user->phone}}
+                   <button id="D_Mobile_update_btn" type="button" class="btn btn-warning Update_button">UPDATE</button>
+                </li>
+              </ul>
             </div>
           </div>
+
+          <!-- To-Do List -->
+          <div class="col-md-6"><br class="d-sm">
+            <h2 class="d-flex justify-content-center text-warning"> TO-DO LIST </h2>
+            <div>
+              <button id="D_Add_schedule_btn" type="button" data-bs-toggle="modal" data-bs-target="#Modal6" class="btn btn-warning Update_button Add_button">+ ADD SCHEDULE</button>
+              <div id="table_div">
+                <table style="height: 10px;" class="table bg-light table-wrapper-scroll-y my-custom-scrollbar ToDo_table">
+                  <thead>
+                    <tr>
+                      <th class="C_Task" scope="col">Task</th>
+                      <th class="C_Status" scope="col">Status</th>
+                      <th class="C_Update" scope="col">Update</th>
+                      <th class="C_Delete" scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody id="result">
+                    @foreach ($to_do as $log => $value)
+                      <tr>
+                        <td class="C_Task"><textarea class="task" placeholder="{{$value['task']}}" disabled></textarea></td>
+                        @if($value['status'] == 1)                 
+                        <td class="C_Status"><span class="badge rounded-pill bg-success badge_size">Completed</span></td>
+                        <td class="C_Update"></td>
+                        @else
+                        <td class="C_Status"><span class="badge rounded-pill bg-warning badge_size">Pending</span></td>
+                        <td class="C_Update"><button id="D_Add_task_btn" type="button" onclick="updateStatus(<?php echo $value['id']?>)" id="b1" class="btn btn-warning Done_button">Done</button></td>
+                        @endif
+                        <td class="C_Delete"><button id="D_Delete_task_btn" type="button" onclick="deleteTask(<?php echo $value['id']?>)" id="b2" class="btn btn-danger Delete_button">Delete</button></td>
+                      </tr>
+                    @endforeach
+                  </tbody>    
+                </table>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
+    <hr>
 
-    Footer
+    <!-- Modal-4 for Add Student -->
+    <div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Student</h5>
+            <button id="M4_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="M4_Add_student_form" action="Dashboard.html" method="get">
+              <div class="mb-3">
+                <input name="M4_Sname_inp" type="text" class="form-control" id="exampleFormControlInput2" placeholder="Full name">
+              </div>
+              <div class="mb-3">
+                <input name="M4_Semail_inp" type="email" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Student Email">
+              </div>
+              <div class="mb-3">
+                <input name="M4_SrollNo_inp" type="number" class="form-control" id="exampleFormControlInput2" placeholder="Roll number">
+              </div>
+            </form> 
+          </div>
+          <div class="modal-footer">
+            <button id="M4_Add_Student_btn" type="button" class="btn btn-warning">
+              <a href="Dashboard.html" class="ModelLink"> 
+                ADD
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Modal-5 for Remove Student -->
+    <div class="modal fade" id="Modal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Remove Student</h5>
+            <button id="M5_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">        
+            <form id="M5_Remove_student_form" action="Dashboard.html" method="get">
+              <div class="mb-3">
+                <input name="M5_Semail_inp" type="email" class="form-control" id="exampleFormControlInput2" placeholder="Student Email">
+              </div>
+            </form> 
+          </div>
+          <div class="modal-footer">
+            <button id="M5_Remove_Student_btn" type="button" class="btn btn-warning">
+              <a href="Dashboard.html" class="ModelLink"> 
+                REMOVE
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal-6 for Add Task -->
+    <div class="modal fade" id="Modal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Daily Tasks</h5>
+            <button id="M6_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">        
+            <form id="M6_Task_form">
+              <div class="mb-3">
+                <input name="M6_Task_inp" type="text" class="form-control" id="M6_Task_inp" placeholder="Write Your Task Here">
+              </div>
+            </form> 
+          </div>
+          <div class="modal-footer">
+            <button onclick="addTask()" id="M6_Add_task_btn" type="button" class="btn btn-warning"> 
+                ADD
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Footer -->
     <footer class="p-2 mt-2 bg-dark text-white text-center position-relative">
       <div class="container">
         <p class="lead">Made with <i class="material-icons IconD">&#xe87d;</i> and 
@@ -316,113 +287,7 @@
           <i class="bi bi-arrow-up-circle h2 arrow-color"></i>
         </a>
       </div>
-    </footer> -->
-
-    @extends('footer')
-
-
-    <!-- Modal Loop (1-2-3-1) -->
-    
-    <!-- Modal-1 for Login and forget password -->
-    <!-- <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Faculty Login</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form action="/Dashboard.html" method="get">
-              <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="User Email">
-              </div>
-              <div class="mb-3">
-                <input type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Password">
-              </div>
-            </form> 
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              <a id="closemodal1" class="ModelLink" style="color: white;" href="" data-bs-toggle="modal" data-bs-target="#Modal2">
-                Forget Password
-              </a>
-            </button>
-            <button type="button" class="btn btn-warning">
-              <a href="Dashboard.html" class="ModelLink"> 
-                Login
-              </a>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    
-    <!-- Modal-2 for mail and OTP -->
-    <!-- <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h6 class="modal-title" id="exampleModalLabel">Provide Account Details</h6>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form action="/Dashboard.html" method="get">
-              <div class="mb-3">
-                <p>To recover the password for your account, please provide us your registered email</p>
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="User Email"><br>
-                <button 
-                  type="button"
-                  class="ModelLink btn btn-warning"
-                  onclick="Add_OTP_div()"
-                  >
-                  Send OTP
-                </button><br>
-              </div>
-              <div id="GiveOTP" class="mb-3 form-control">
-                <p>Check your email. You must have received an email with the OTP</p> 
-                <input type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Enter OTP"><br>
-                <button 
-                  type="button" 
-                  class="btn btn-warning" 
-                  data-bs-dismiss="modal"
-                  onclick="Remove_OTP_div()">
-                <a href="" class="ModelLink" data-bs-toggle="modal" data-bs-target="#Modal3">
-                  Submit
-                </a>
-        </button>
-              </div>
-            </form> 
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Modal-3 for Change and confirm password -->
-    <!-- <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Reset your password</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form action="/Dashboard.html" method="get">
-              <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="New password">
-              </div>
-              <div class="mb-3">
-                <input type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Confirm password">
-              </div>
-              <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
-                <a href="" class="ModelLink" data-bs-toggle="modal" data-bs-target="#Modal1">
-                  Submit
-                </a>
-              </button>
-            </form> 
-          </div>
-        </div>
-      </div>
-    </div> -->
+    </footer> 
 
     <script src="{{asset('JS/main.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

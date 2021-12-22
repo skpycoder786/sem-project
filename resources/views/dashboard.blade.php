@@ -1,19 +1,100 @@
-@extends('header')
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('CSS/style.css')}}" />
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon" />
 
-@section('dashboard')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{asset('JS/notify.min.js')}}"></script>
+    <title>Home</title>
+  </head>
 
-    @if (!empty($user))
+  <body>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+            <div class="container">
+                <div id="Logo">
+                <a href="/" class="navbar-brand">
+                    <img src="{{asset('images/logo.png')}}" alt="SmartAS"/>
+                </a>
+                </div>
+
+                <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navmenu"
+                >
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    @if (session()->get('id'))
+                      <li class="nav-item">
+                        <a href="logout" class="nav-link">Logout</a>
+                      </li>
+                    @else
+                      <li class="nav-item">
+                        <a href="" class="nav-link" data-bs-toggle="modal" data-bs-target="#Modal1">Faculty-Login</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#instructors" class="nav-link">AboutUs</a>
+                      </li>
+                    @endif
+                </ul>
+                </div>
+            </div>
+        </nav>
+
+        @if ($errors->any())
         
-    @endif
+          @foreach ($errors->all() as $error)
+            <?php echo "<script>
+              $.notify(" ."'". $error. "'" . ", 'error');
+            </script>"; ?>
+          @endforeach
+            
+        @endif
 
+        @if(!empty($user))
+        <?php echo "<script>
+              $.notify(" ."'". $user->msg. "'" . ", 'success');
+            </script>"; ?>
+        @endif
+
+    <br>
+
+    
     <!-- DashBord Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning py-2 px-4 sticky-top" id="DashNav">
-      <button id="D_Toggler_btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning py-2 px-4 sticky-top">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#dashNav  "
+        >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <div class="collapse navbar-collapse" id="dashNav">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Student
             </a>
@@ -22,10 +103,21 @@
               <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal5">Remove Student</a>
               <a class="dropdown-item DropActive" href="#">Get Students Data</a>
             </div>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Student
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal4">Add Student</a></li>
+              <li><a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal5">Remove Student</a></li>
+              <li><a class="dropdown-item DropActive" href="#">Get Students Data</a></li>
+            </ul>
+          </li>
           <li class="nav-item active">
             <a class="nav-link btn btn-outline-dark mx-3" id="TakeA" href="#">Take Attendence</a>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Generate Report
             </a>
@@ -34,10 +126,55 @@
               <a class="dropdown-item DropActive" href="#">Weekly Report</a>
               <a class="dropdown-item DropActive" href="#">Monthly Report</a>
             </div>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Generate Report
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item DropActive" href="#">Today's Report</a></li>
+              <li><a class="dropdown-item DropActive" href="#">Weekly Report</a></li>
+              <li><a class="dropdown-item DropActive" href="#">Monthly Report</a></li>
+            </ul>
           </li>
         </ul>
       </div>
     </nav>
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Student
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal4">Add Student</a>
+                <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal5">Remove Student</a>
+                <a class="dropdown-item DropActive" href="#">Get Students Data</a>
+              </div>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link btn btn-outline-dark mx-3" id="TakeA" href="#">Take Attendence</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Generate Report
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item DropActive" href="#">Today's Report</a>
+                <a class="dropdown-item DropActive" href="#">Weekly Report</a>
+                <a class="dropdown-item DropActive" href="#">Monthly Report</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
 
 
     <!-- About Teacher and To-Do List -->
@@ -192,4 +329,26 @@
       </div>
     </div>
 
-@endsection
+
+    <!-- Footer -->
+    <footer class="p-2 mt-2 bg-dark text-white text-center position-relative">
+      <div class="container">
+        <p class="lead">Made with <i class="material-icons IconD">&#xe87d;</i> and 
+          <a target="blank" 
+            href="https://getbootstrap.com/docs/5.1/getting-started/introduction/" 
+            style="text-decoration: none;" 
+            class="IconD">
+            Bootstrap
+          </a>
+        </p>
+        <a href="#" class="position-absolute bottom-0 end-0 p-3">
+          <i class="bi bi-arrow-up-circle h2 arrow-color"></i>
+        </a>
+      </div>
+    </footer> 
+
+    <script src="{{asset('JS/main.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+
+</html>
