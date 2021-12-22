@@ -17,13 +17,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('CSS/style.css')}}" />
     <link href="/images/logo.ico" rel="icon" type="image/x-icon" />
-
-    <script src="https://www.jsdelivr.com/package/npm/@splidejs/splide"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="{{asset('CSS/splide.min.css')}}">
-    <script src="{{asset('JS/splide.min.js')}}"></script>
-    <script src="{{asset('JS/notify.min.js')}}"></script>
+
     <title>Home</title>
   </head>
 
@@ -49,12 +44,18 @@
 
                 <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                    <a href="" class="nav-link" data-bs-toggle="modal" data-bs-target="#Modal1">Faculty-Login</a>
-                    </li>
-                    <li class="nav-item">
-                    <a href="#instructors" class="nav-link">AboutUs</a>
-                    </li>
+                    @if (session()->get('id'))
+                      <li class="nav-item">
+                        <a href="logout" class="nav-link">Logout</a>
+                      </li>
+                    @else
+                      <li class="nav-item">
+                        <a href="" class="nav-link" data-bs-toggle="modal" data-bs-target="#Modal1">Faculty-Login</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#instructors" class="nav-link">AboutUs</a>
+                      </li>
+                    @endif
                 </ul>
                 </div>
             </div>
@@ -418,8 +419,13 @@
       </div>
     </div> -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://www.jsdelivr.com/package/npm/@splidejs/splide"></script>
     <script src="{{asset('JS/main.js')}}"></script>
+    <script src="{{asset('JS/splide.min.js')}}"></script>
+    <script src="{{asset('JS/notify.min.js')}}"></script><!--
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
+              --></body>
 
 </html>

@@ -279,8 +279,7 @@
                 <button 
                   type="button" 
                   id="M2_SubmitOTP_btn"
-                  class="btn btn-warning" 
-                  data-bs-dismiss="modal"
+                  class="btn btn-warning"
                   onclick="Remove_OTP_div()">
                     Submit
                 </button>
@@ -300,17 +299,15 @@
             <button id="M3_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="M3_ResetP_form" action="/Dashboard.html" method="get">
+            <form id="M3_ResetP_form">
               <div class="mb-3">
-                <input name="M3_NewPassword_inp" type="email" class="form-control" id="exampleFormControlInput2" placeholder="New password">
+                <input name="M3_NewPassword_inp" type="email" class="form-control" id="M3_NewPassword_inp" placeholder="New password">
               </div>
               <div class="mb-3">
-                <input name="M3_ConfirmPassword_inp" type="password" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Confirm password">
+                <input name="M3_ConfirmPassword_inp" type="password" minlength="8" class="form-control" id="M3_ConfirmPassword_inp" placeholder="Confirm password">
               </div>
-              <button id="M3_Submit_btn" type="button" class="btn btn-warning" data-bs-dismiss="modal">
-                <a href="" class="ModelLink" data-bs-toggle="modal" data-bs-target="#Modal1">
+              <button id="M3_Submit_btn" type="button" class="btn btn-warning" onclick="submitNewPass()">
                   Submit
-                </a>
               </button>
             </form> 
           </div>

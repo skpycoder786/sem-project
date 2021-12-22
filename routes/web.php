@@ -3,6 +3,7 @@
 use App\Http\Controllers\generalController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,13 @@ Route::get('/home', function() {
 // });
 
 Route::post('login', [generalController::class, 'login']);
+Route::get('dashboard', [generalController::class, 'dashboard']);
 Route::get('sendOTP', [generalController::class, 'sendOTP']);
+Route::get('confirmPass', [generalController::class, 'confirmPass']);
+Route::get('addTask', [generalController::class, 'addTask']);
+Route::get('updateStatus', [generalController::class, 'updateStatus']);
+Route::get('deleteTask', [generalController::class, 'deleteTask']);
+Route::get('logout', function() {
+    Session()->forget('id');
+    return view('home');
+});

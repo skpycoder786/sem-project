@@ -80,25 +80,24 @@
                     <tr>
                       <th class="C_Task" scope="col">Task</th>
                       <th class="C_Status" scope="col">Status</th>
-                      <th class="C_Action" scope="col">Action</th>
+                      <th class="C_Update" scope="col">Update</th>
+                      <th class="C_Delete" scope="col">Delete</th>
                     </tr>
                   </thead>
-                  <tbody">
-                    <tr>                     
-                      <td class="C_Task"><textarea class="task" placeholder="add task" disabled></textarea></td>                   
-                      <td class="C_Status"><span class="badge rounded-pill bg-success badge_size">Completed</span></td>
-                      <td class="C_Action"><button id="D_Add_task_btn" type="button" onclick="ChangeColor(this)" id="b1" class="btn btn-warning Done_button">Done</button></td>
-                    </tr>
-                    <tr>
-                      <td class="C_Task"><textarea class="task" placeholder="add task" disabled></textarea></td>
-                      <td class="C_Status"><span class="badge rounded-pill bg-success badge_size">Completed</span></td>
-                      <td class="C_Action"><button id="D_Add_task_btn" type="button" onclick="ChangeColor(this)" id="b2" class="btn btn-warning Done_button">Done</button></td>
-                    </tr>
-                    <tr>                      
-                      <td class="C_Task"><textarea class="task" placeholder="add task" disabled></textarea></td>
-                      <td class="C_Status"><span class="badge rounded-pill bg-danger badge_size">Incomplete</span></td>
-                      <td class="C_Action"><button id="D_Add_task_btn" type="button" onclick="ChangeColor(this)" id="b3" class="btn btn-warning Done_button">Done</button></td>
-                    </tr>
+                  <tbody id="result">
+                    @foreach ($to_do as $log => $value)
+                      <tr>
+                        <td class="C_Task"><textarea class="task" placeholder="{{$value['task']}}" disabled></textarea></td>
+                        @if($value['status'] == 1)                 
+                        <td class="C_Status"><span class="badge rounded-pill bg-success badge_size">Completed</span></td>
+                        <td class="C_Update"></td>
+                        @else
+                        <td class="C_Status"><span class="badge rounded-pill bg-warning badge_size">Pending</span></td>
+                        <td class="C_Update"><button id="D_Add_task_btn" type="button" onclick="updateStatus(<?php echo $value['id']?>)" id="b1" class="btn btn-warning Done_button">Done</button></td>
+                        @endif
+                        <td class="C_Delete"><button id="D_Delete_task_btn" type="button" onclick="deleteTask(<?php echo $value['id']?>)" id="b2" class="btn btn-danger Delete_button">Delete</button></td>
+                      </tr>
+                    @endforeach
                   </tbody>    
                 </table>
               </div>
@@ -108,6 +107,8 @@
         </div>
       </div>
     </section>
+
+    <hr>
 
     <!-- Modal-4 for Add Student -->
     <div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -176,17 +177,15 @@
             <button id="M6_Cross_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">        
-            <form id="M6_Task_form" action="Dashboard.html" method="get">
+            <form id="M6_Task_form">
               <div class="mb-3">
-                <input name="M6_Task_inp" type="text" class="form-control" id="exampleFormControlInput2" placeholder="Write Your Task Here">
+                <input name="M6_Task_inp" type="text" class="form-control" id="M6_Task_inp" placeholder="Write Your Task Here">
               </div>
             </form> 
           </div>
           <div class="modal-footer">
-            <button id="M6_Add_task_btn" type="button" class="btn btn-warning">
-              <a href="Dashboard.html" class="ModelLink"> 
+            <button onclick="addTask()" id="M6_Add_task_btn" type="button" class="btn btn-warning"> 
                 ADD
-              </a>
             </button>
           </div>
         </div>
