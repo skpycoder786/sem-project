@@ -17,8 +17,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('CSS/style.css')}}" />
     <link href="/images/logo.ico" rel="icon" type="image/x-icon" />
-    <link rel="stylesheet" href="{{asset('CSS/splide.min.css')}}">
 
+    <script src="https://www.jsdelivr.com/package/npm/@splidejs/splide"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="{{asset('CSS/splide.min.css')}}">
+    <script src="{{asset('JS/splide.min.js')}}"></script>
+    <script src="{{asset('JS/notify.min.js')}}"></script>
     <title>Home</title>
   </head>
 
@@ -28,7 +33,7 @@
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
             <div class="container">
                 <div id="Logo">
-                <a href="home.html" class="navbar-brand">
+                <a href="/" class="navbar-brand">
                     <img src="{{asset('images/logo.png')}}" alt="SmartAS"/>
                 </a>
                 </div>
@@ -419,13 +424,8 @@
       </div>
     </div> -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://www.jsdelivr.com/package/npm/@splidejs/splide"></script>
     <script src="{{asset('JS/main.js')}}"></script>
-    <script src="{{asset('JS/splide.min.js')}}"></script>
-    <script src="{{asset('JS/notify.min.js')}}"></script><!--
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-              --></body>
+  </body>
 
 </html>
