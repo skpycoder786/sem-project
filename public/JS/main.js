@@ -105,4 +105,56 @@ function deleteTask(id) {
   });
 }
 
+function addStudent() {
+  data = {
+    'name' : document.getElementById("M4_Sname_inp").value,
+    'email' : document.getElementById("M4_Semail_inp").value,
+    'rollNo' : document.getElementById("M4_SrollNo_inp").value
+  };
+  $.get("addStudent", data, function(data){
+    if(data.error) {
+      $.notify(data.error, "error");
+    }
+    $.notify(data.msg, "success");
+  });
+}
+
+function takeAttendance() {
+  $.get("takeAttendance", function(data){
+    console.log(data);
+    x = data.split("[")
+    x = x[1]
+    x = x.split("]")
+    x = x[0]
+    x = x.split(",")
+    arr = []
+    for(var i=0; i<x.length; i++) {
+        y = x[i].split("'")
+        arr.push(y[1])
+    }
+    if(arr.length == 0) {
+      $.notify("No student found", "error");
+    }
+    data = {
+      'faces': arr
+    };
+    $.notify("Attendance has been taken successfully", "success");
+    $.get("storeAttendance", data, function(data){
+      if(data.error) {
+        $.notify(data.error, "error");
+      }
+      $.notify(data.msg, "success");
+    });
+  });
+}
+
+// function removeStudent() {
+//   var email = document.getElementById("M5_Semail_inp");
+//   data = {
+//     'email': email
+//   };
+//   $.get("removeStudent", data, function(data){
     
+//   });
+
+// }

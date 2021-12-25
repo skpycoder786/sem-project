@@ -41,6 +41,13 @@ Route::middleware([CheckLogin::class])->group(function(){
     Route::get('addTask', [generalController::class, 'addTask']);
     Route::get('updateStatus', [generalController::class, 'updateStatus']);
     Route::get('deleteTask', [generalController::class, 'deleteTask']);
+
+    Route::get('addStudent', [generalController::class, 'addStudent']);
+    // Route::get('removeStudent', [generalController::class, 'removeStudent']);
+    Route::get('fetchStudent', [generalController::class, 'fetchStudent']);
+
+    Route::get('takeAttendance', [generalController::class, 'takeAttendance']);
+    Route::get('storeAttendance', [generalController::class, 'storeAttendance']);
 });
 
 Route::get('logout', function() {

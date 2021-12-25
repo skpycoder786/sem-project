@@ -94,39 +94,19 @@
       </button>
       <div class="collapse navbar-collapse" id="dashNav">
         <ul class="navbar-nav mx-auto">
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Student
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal4">Add Student</a>
-              <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal5">Remove Student</a>
-              <a class="dropdown-item DropActive" href="#">Get Students Data</a>
-            </div>
-          </li> -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Student
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal4">Add Student</a></li>
-              <li><a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal5">Remove Student</a></li>
-              <li><a class="dropdown-item DropActive" href="#">Get Students Data</a></li>
+              <!-- <li><a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal5">Remove Student</a></li> -->
+              <li><a class="dropdown-item DropActive" href="fetchStudent">Get Students Data</a></li>
             </ul>
           </li>
           <li class="nav-item active">
-            <a class="nav-link btn btn-outline-dark mx-3" id="TakeA" href="#">Take Attendence</a>
+            <button onclick="takeAttendance()" class="btn btn-danger">Take Attendence</button>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Generate Report
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item DropActive" href="#">Today's Report</a>
-              <a class="dropdown-item DropActive" href="#">Weekly Report</a>
-              <a class="dropdown-item DropActive" href="#">Monthly Report</a>
-            </div>
-          </li> -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Generate Report
@@ -140,41 +120,6 @@
         </ul>
       </div>
     </nav>
-
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Student
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal4">Add Student</a>
-                <a class="dropdown-item DropActive" href="" data-bs-toggle="modal" data-bs-target="#Modal5">Remove Student</a>
-                <a class="dropdown-item DropActive" href="#">Get Students Data</a>
-              </div>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link btn btn-outline-dark mx-3" id="TakeA" href="#">Take Attendence</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Generate Report
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item DropActive" href="#">Today's Report</a>
-                <a class="dropdown-item DropActive" href="#">Weekly Report</a>
-                <a class="dropdown-item DropActive" href="#">Monthly Report</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav> -->
 
 
     <!-- About Teacher and To-Do List -->
@@ -258,21 +203,19 @@
           <div class="modal-body">
             <form id="M4_Add_student_form" action="Dashboard.html" method="get">
               <div class="mb-3">
-                <input name="M4_Sname_inp" type="text" class="form-control" id="exampleFormControlInput2" placeholder="Full name">
+                <input name="M4_Sname_inp" type="text" class="form-control" id="M4_Sname_inp" placeholder="Full name">
               </div>
               <div class="mb-3">
-                <input name="M4_Semail_inp" type="email" minlength="8" class="form-control" id="exampleFormControlInput2" placeholder="Student Email">
+                <input name="M4_Semail_inp" type="email" minlength="8" class="form-control" id="M4_Semail_inp" placeholder="Student Email">
               </div>
               <div class="mb-3">
-                <input name="M4_SrollNo_inp" type="number" class="form-control" id="exampleFormControlInput2" placeholder="Roll number">
+                <input name="M4_SrollNo_inp" type="number" class="form-control" id="M4_SrollNo_inp" placeholder="Roll number">
               </div>
             </form> 
           </div>
           <div class="modal-footer">
-            <button id="M4_Add_Student_btn" type="button" class="btn btn-warning">
-              <a href="Dashboard.html" class="ModelLink"> 
+            <button onclick="addStudent()" id="M4_Add_Student_btn" type="button" class="btn btn-warning">
                 ADD
-              </a>
             </button>
           </div>
         </div>
@@ -280,7 +223,7 @@
     </div>
     
     <!-- Modal-5 for Remove Student -->
-    <div class="modal fade" id="Modal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="Modal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -290,20 +233,18 @@
           <div class="modal-body">        
             <form id="M5_Remove_student_form" action="Dashboard.html" method="get">
               <div class="mb-3">
-                <input name="M5_Semail_inp" type="email" class="form-control" id="exampleFormControlInput2" placeholder="Student Email">
+                <input name="M5_Semail_inp" type="email" class="form-control" id="M5_Semail_inp" placeholder="Student Email">
               </div>
             </form> 
           </div>
           <div class="modal-footer">
-            <button id="M5_Remove_Student_btn" type="button" class="btn btn-warning">
-              <a href="Dashboard.html" class="ModelLink"> 
+            <button onclick="removeStudent()" id="M5_Remove_Student_btn" type="button" class="btn btn-warning">
                 REMOVE
-              </a>
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Modal-6 for Add Task -->
     <div class="modal fade" id="Modal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

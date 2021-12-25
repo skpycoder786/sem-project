@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendOTPMail;
+use App\Models\attendance;
+use App\Models\student;
+use App\Models\studentSubject;
 use App\Models\teacher;
 use App\Models\teacher_todo;
 use Illuminate\Http\Request;
@@ -12,6 +15,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Mail;
+use App\Exports\StudentExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class generalController extends Controller
 {
@@ -28,10 +33,8 @@ class generalController extends Controller
         if($user) {
             $user['msg'] = 'Login Successfull';
             Session()->forget('expire');
-            session(['id' => $user->id]);
+            session(['id' => $user->id, 'subject' => $req->M1_Subject_inp]);
             return redirect('dashboard');
-            // return Redirect::route('generalController.dashboard')->with(['user' => $user]);
-            // return view('dashboard')->with(compact('user', 'to_do'));
         }
     }
 
@@ -146,6 +149,74 @@ class generalController extends Controller
                 'error' => 'Either task does not exist or some problem occurred.'
             ]);
         }
+    }
+
+    public function addStudent(Request $req) {
+        $exists = student::where('email', $req->email)->first();
+        if($exists) {
+            return response()->json([
+                'error' => 'Student already exists.'
+            ]);
+        } else {
+            $path = base_path();
+            $result = passthru('python ' . base_path() . '/trainModel.py '.$path.' '.$req->rollNo);
+            $data = [
+                'name'   => $req->name,
+                'email'  => $req->email,
+                'rollNo' => $req->rollNo
+            ];
+            $add = student::create($data);
+            $add2 = studentSubject::create([
+                'subject' => $req->session()->get('subject'),
+                'student_id' => $add->id
+            ]);
+            if($add && $add2) {
+                return response()->json([
+                    'msg' => 'Student has been added successfully.'
+                ]);
+            }
+        }
+    }
+
+    public function takeAttendance() {
+        $path = base_path();
+        $result = json_decode(passthru('python ' . base_path() . '/detect.py '.$path));
+        print_r($result);
+        exit();
+    }
+
+    public function storeAttendance(Request $req) {
+        $faces = $req->faces;
+        $data = [
+            'date'       => Carbon::today(),
+            'students'   => json_encode($faces),
+            'subject'    => $req->session()->get('subject'),
+            'teacher_id' => $req->session()->get('id')
+        ];
+        $add = attendance::create($data);
+        if($add) {
+            return response()->json([
+                'msg' => 'Attendance has been stored successfully.',
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Attendance has been stored successfully.',
+            ]);
+        }
+    }
+
+    // public function removeStudent(request $req) {
+    //     $getStudent = student::where('email', $req->email);
+    //     if($getStudent->first()) {
+    //         $getStudent->delete();
+    //         return response()->json([
+    //             'msg' => 'Student has been removed from this subject.',
+    //         ]);
+    //     }
+    // }
+
+    public function fetchStudent(Request $req) {
+        return Excel::download(new StudentExport, 'students.xlsx');
     }
 
 }
