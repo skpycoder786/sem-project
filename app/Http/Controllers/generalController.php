@@ -152,7 +152,7 @@ class generalController extends Controller
     }
 
     public function addStudent(Request $req) {
-        $exists = student::where('email', $req->email)->first();
+        $exists = student::where('email', $req->email)->orWhere('rollNo', $req->rollNo)->first();
         if($exists) {
             return response()->json([
                 'error' => 'Student already exists.'

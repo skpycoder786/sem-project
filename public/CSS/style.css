@@ -77,3 +77,92 @@ body::before {
   margin-left: auto;
   margin-right: auto;
 }
+
+
+/* FOR DASHBOARD*/
+
+#TakeA:hover{
+  color: azure;
+}
+
+.DropActive:active {
+  color: black;
+  background-color: rgb(247, 183, 9);
+}
+
+.IconD2{
+  font-size:20px;
+  color: rgb(29, 29, 28);
+}
+
+.IconD2:hover{
+  color: rgb(29, 29, 28);
+}
+
+.arrow-color2{
+  color: rgb(29, 29, 28);
+}
+
+#Main_container{
+  background-image: url(/images/D_Background.jpg);
+  opacity: 0.9;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 71.6vh;
+}
+
+.Update_button{
+  float: right;
+  border: 2px solid black;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  border-radius: 15px;
+}
+
+.Add_button{
+  font-size: 15px;
+  margin: 10px;
+}
+
+.ToDo_table{
+  border-collapse: separate;
+  display: block;
+  overflow-x: auto;
+  height: 100px;
+  /* table-layout: fixed; */
+}
+
+table tbody{
+  display: table;
+  width: 100px;
+}
+
+.Done_button{
+  font-size: 10px;
+  border-radius: 15px;
+}
+
+.task{
+  width: 90%;
+  height: 80%;
+}
+
+.C_Delete{
+  width: 15%;
+}
+
+.C_Task{
+ width: 40%;
+}
+.C_Status{
+ width: 25%;
+}
+.C_Action{
+ width: 20%;
+}
+
+.Subject_select{
+  border: 5px solid rgb(221, 221, 215);
+}

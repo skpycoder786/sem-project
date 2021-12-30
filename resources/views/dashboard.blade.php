@@ -113,8 +113,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item DropActive" href="#">Today's Report</a></li>
-              <li><a class="dropdown-item DropActive" href="#">Weekly Report</a></li>
-              <li><a class="dropdown-item DropActive" href="#">Monthly Report</a></li>
+              <li><a class="dropdown-item DropActive" href="#">Overall Report</a></li>
             </ul>
           </li>
         </ul>
@@ -140,12 +139,12 @@
                 <li class="list-group-item">
                   <i class="material-icons IconD2">&#xe0d0;</i>
                   &nbsp; {{$user->email}}
-                  <button id="D_Email_update_btn" type="button" class="btn btn-warning Update_button">UPDATE</button>
+                  <button id="D_Email_update_btn" type="button" class="btn btn-warning btn-sm Update_button"><i class="material-icons IconD2">&#xf035;</i></button>
                 </li>
                 <li class="list-group-item">
                   <i class="material-icons IconD2">&#xe0cf;</i>
                    &nbsp; {{$user->phone}}
-                   <button id="D_Mobile_update_btn" type="button" class="btn btn-warning Update_button">UPDATE</button>
+                   <button id="D_Mobile_update_btn" type="button" class="btn btn-warning btn-sm Update_button"><i class="material-icons IconD2">&#xf035;</i></button>
                 </li>
               </ul>
             </div>
@@ -157,7 +156,7 @@
             <div>
               <button id="D_Add_schedule_btn" type="button" data-bs-toggle="modal" data-bs-target="#Modal6" class="btn btn-warning Update_button Add_button">+ ADD SCHEDULE</button>
               <div id="table_div">
-                <table style="height: 10px;" class="table bg-light table-wrapper-scroll-y my-custom-scrollbar ToDo_table">
+                <table class="table bg-light table-wrapper-scroll-y my-custom-scrollbar ToDo_table">
                   <thead>
                     <tr>
                       <th class="C_Task" scope="col">Task</th>
@@ -169,7 +168,7 @@
                   <tbody id="result">
                     @foreach ($to_do as $log => $value)
                       <tr>
-                        <td class="C_Task"><textarea class="task" placeholder="{{$value['task']}}" disabled></textarea></td>
+                        <td class="C_Task">{{$value['task']}}</td>
                         @if($value['status'] == 1)                 
                         <td class="C_Status"><span class="badge rounded-pill bg-success badge_size">Completed</span></td>
                         <td class="C_Update"></td>
