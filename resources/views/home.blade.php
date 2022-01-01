@@ -268,20 +268,26 @@
         <div class="row g-4">
           <div class="col-md">
             <h2> Any Query ?</h2><br>
-            <form action="/action_page.php" method="get">
+            <form id="Query_form" action="query-form" method="post">
+              @csrf
               <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Full Name">
+                <input name="Name_inp" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Full Name">
               </div>
               <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <input name="Email_inp" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
               </div>
               <div class="mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write your query here"></textarea>
+                <textarea 
+                  class="form-control" 
+                  form="Query_form"
+                  name="Query_inp"
+                  id="exampleFormControlTextarea1" 
+                  rows="3" 
+                  placeholder="Write your query here">
+                </textarea>
               </div>
-              <button type="button" class="btn btn-warning">
-                <a class="ModelLink" href="#"> 
+              <button id="Query_submit_btn" type="submit" class="btn btn-warning">
                   Submit
-                </a>
               </button>  
             </form>       
           </div>

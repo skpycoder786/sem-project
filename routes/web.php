@@ -36,6 +36,8 @@ Route::post('login', [generalController::class, 'login']);
 Route::get('sendOTP', [generalController::class, 'sendOTP']);
 Route::get('confirmPass', [generalController::class, 'confirmPass']);
 
+Route::post('query-form', [generalController::class, 'queryForm']);
+
 Route::middleware([CheckLogin::class])->group(function(){
     Route::get('dashboard', [generalController::class, 'dashboard']);
     Route::get('addTask', [generalController::class, 'addTask']);
@@ -48,6 +50,12 @@ Route::middleware([CheckLogin::class])->group(function(){
 
     Route::get('takeAttendance', [generalController::class, 'takeAttendance']);
     Route::get('storeAttendance', [generalController::class, 'storeAttendance']);
+
+    Route::get('updateEmail', [generalController::class, 'updateEmail']);
+    Route::get('updateContact', [generalController::class, 'updateContact']);
+
+    Route::get('todayReport', [generalController::class, 'todayReport']);
+    Route::get('overallReport', [generalController::class, 'overallReport']);
 });
 
 Route::get('logout', function() {

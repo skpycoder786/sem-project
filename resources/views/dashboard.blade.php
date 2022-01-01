@@ -112,8 +112,8 @@
               Generate Report
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item DropActive" href="#">Today's Report</a></li>
-              <li><a class="dropdown-item DropActive" href="#">Overall Report</a></li>
+              <li><a class="dropdown-item DropActive" href="todayReport">Today's Report</a></li>
+              <li><a class="dropdown-item DropActive" href="overallReport">Overall Report</a></li>
             </ul>
           </li>
         </ul>
@@ -138,13 +138,19 @@
                 </li>
                 <li class="list-group-item">
                   <i class="material-icons IconD2">&#xe0d0;</i>
-                  &nbsp; {{$user->email}}
-                  <button id="D_Email_update_btn" type="button" class="btn btn-warning btn-sm Update_button"><i class="material-icons IconD2">&#xf035;</i></button>
+                  &nbsp;
+                  <span id="user_email">{{$user->email}}</span>
+                  <button onclick="updateEmail()" id="update_btn_email" type="button" class="btn btn-warning btn-sm Update_button"><i class="material-icons IconD2">&#xf035;</i></button>
+                  <span><input type="text" id="update_email" required style="display: none;" /><input type="hidden" id="prev_email" value="{{$user->email}}"></span>
+                  <button id="D_Email_update_btn" onclick="sendUpdateEmail()" style="display: none;" type="button" class="btn btn-warning btn-sm Update_button"><i class="material-icons IconD2">&#xe5ca;</i></button>
                 </li>
                 <li class="list-group-item">
                   <i class="material-icons IconD2">&#xe0cf;</i>
-                   &nbsp; {{$user->phone}}
-                   <button id="D_Mobile_update_btn" type="button" class="btn btn-warning btn-sm Update_button"><i class="material-icons IconD2">&#xf035;</i></button>
+                   &nbsp;
+                  <span id="user_contact">{{$user->phone}}</span>
+                  <button onclick="updateContact()" id="update_btn_contact" type="button" class="btn btn-warning btn-sm Update_button"><i class="material-icons IconD2">&#xf035;</i></button>
+                  <span><input type="text" id="update_contact" required style="display: none;" /><input type="hidden" id="prev_contact" value="{{$user->phone}}"></span>
+                  <button id="D_Contact_update_btn" onclick="sendUpdateContact()" style="display: none;" type="button" class="btn btn-warning btn-sm Update_button"><i class="material-icons IconD2">&#xe5ca;</i></button>
                 </li>
               </ul>
             </div>
@@ -189,7 +195,6 @@
       </div>
     </section>
 
-    <hr>
 
     <!-- Modal-4 for Add Student -->
     <div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

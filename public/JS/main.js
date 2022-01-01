@@ -158,3 +158,67 @@ function takeAttendance() {
 //   });
 
 // }
+
+function updateEmail() {
+  document.getElementById('user_email').style.display = 'none';
+  document.getElementById('update_btn_email').style.display = 'none';
+  document.getElementById('update_email').style.display = 'block';
+  document.getElementById('D_Email_update_btn').style.display = 'block';
+}
+
+function sendUpdateEmail() {
+
+  var new_email = document.getElementById('update_email').value;
+  var prev_email = document.getElementById('prev_email').value;
+
+  if(new_email == prev_email) {
+    $.notify("New Email entered cannot be same as previous.", "error");
+  } else {
+    data = {
+      'new_email': new_email,
+      'prev_email': prev_email
+    };
+    $.get("updateEmail", data, function(data){
+      if(data.error) {
+        $.notify(data.error, "error");
+      } else{
+        $.notify(data.msg, "success");
+        setTimeout(function () {
+          location.reload(true);
+        }, 2000);
+      }
+    });
+  }
+}
+
+function updateContact() {
+  document.getElementById('user_contact').style.display = 'none';
+  document.getElementById('update_btn_contact').style.display = 'none';
+  document.getElementById('update_contact').style.display = 'block';
+  document.getElementById('D_Contact_update_btn').style.display = 'block';
+}
+
+function sendUpdateContact() {
+
+  var new_contact = document.getElementById('update_contact').value;
+  var prev_contact = document.getElementById('prev_contact').value;
+
+  if(new_contact == prev_contact) {
+    $.notify("New Contact entered cannot be same as previous.", "error");
+  } else {
+    data = {
+      'new_contact': new_contact,
+      'prev_contact': prev_contact
+    };
+    $.get("updateContact", data, function(data){
+      if(data.error) {
+        $.notify(data.error, "error");
+      } else{
+        $.notify(data.msg, "success");
+        setTimeout(function () {
+          location.reload(true);
+        }, 2000);
+      }
+    });
+  }
+}

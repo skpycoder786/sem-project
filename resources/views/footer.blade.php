@@ -6,9 +6,10 @@
         <div class="row g-4">
           <div class="col-md">
             <h2> Any Query ?</h2><br>
-            <form id="Query_form" action="/action_page.php" method="get">
+            <form id="Query_form" action="query-form" method="post">
+              @csrf
               <div class="mb-3">
-                <input name="Name_inp" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Full Name">
+                <input name="Name_inp" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Full Name">
               </div>
               <div class="mb-3">
                 <input name="Email_inp" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
@@ -23,10 +24,8 @@
                   placeholder="Write your query here">
                 </textarea>
               </div>
-              <button id="Query_submit_btn" type="button" class="btn btn-warning">
-                <a class="ModelLink" href="#"> 
+              <button id="Query_submit_btn" type="submit" class="btn btn-warning">
                   Submit
-                </a>
               </button>  
             </form>       
           </div>

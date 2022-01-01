@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OverallReportExport;
 use App\Mail\SendOTPMail;
 use App\Models\attendance;
 use App\Models\student;
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Mail;
 use App\Exports\StudentExport;
+use App\Exports\TodayReportExport;
+use App\Mail\queryMail;
+use App\Models\Query;
+use Illuminate\Contracts\Session\Session;
 use Maatwebsite\Excel\Facades\Excel;
 
 class generalController extends Controller
@@ -187,13 +192,20 @@ class generalController extends Controller
 
     public function storeAttendance(Request $req) {
         $faces = $req->faces;
-        $data = [
-            'date'       => Carbon::today(),
-            'students'   => json_encode($faces),
-            'subject'    => $req->session()->get('subject'),
-            'teacher_id' => $req->session()->get('id')
-        ];
-        $add = attendance::create($data);
+        $checkIfTaken = attendance::whereDate('created_at', Carbon::today())->first();
+        if($checkIfTaken) {
+            $add = attendance::wheredate('created_at', Carbon::today())->update([
+                'students' => json_encode($faces)
+            ]);
+        } else {
+            $data = [
+                'date'       => Carbon::today(),
+                'students'   => json_encode($faces),
+                'subject'    => $req->session()->get('subject'),
+                'teacher_id' => $req->session()->get('id')
+            ];
+            $add = attendance::create($data);
+        }
         if($add) {
             return response()->json([
                 'msg' => 'Attendance has been stored successfully.',
@@ -215,8 +227,95 @@ class generalController extends Controller
     //     }
     // }
 
-    public function fetchStudent(Request $req) {
+    public function fetchStudent() {
         return Excel::download(new StudentExport, 'students.xlsx');
+    }
+
+    public function updateEmail(Request $req) {
+        if($req->new_email == $req->prev_email) {
+            return response()->json([
+                'error' => 'New Email entered cannot be same as previous.',
+            ]);
+        } else {
+            $check_email_occupied = teacher::where('email', $req->new_email)->first();
+            if($check_email_occupied) {
+                return response()->json([
+                    'error' => 'This email has already been taken.',
+                ]);
+            } else {
+                $update = teacher::where('email', $req->prev_email)->update([
+                    'email' => $req->new_email
+                ]);
+                if($update) {
+                    return response()->json([
+                        'msg' => 'Email has been updated successfully.',
+                    ]);
+                } else {
+                    return response()->json([
+                        'error' => 'Some error occured. Please try again in sometime.',
+                    ]);
+                }
+            }
+        }
+    }
+
+    public function updateContact(Request $req) {
+        if($req->new_contact == $req->prev_contact) {
+            return response()->json([
+                'error' => 'New Contact entered cannot be same as previous.',
+            ]);
+        } else {
+            $check_contact_occupied = teacher::where('phone', $req->new_contact)->first();
+            if($check_contact_occupied) {
+                return response()->json([
+                    'error' => 'This contact number has already been taken.',
+                ]);
+            } else {
+                $update = teacher::where('phone', $req->prev_contact)->update([
+                    'phone' => $req->new_contact
+                ]);
+                if($update) {
+                    return response()->json([
+                        'msg' => 'Contact number has been updated successfully.',
+                    ]);
+                } else {
+                    return response()->json([
+                        'error' => 'Some error occured. Please try again in sometime.',
+                    ]);
+                }
+            }
+        }
+    }
+
+    public function queryForm(Request $req) {
+        $this->validate($req, [
+            'Name_inp'  => 'required',
+            'Email_inp' => 'required',
+            'Query_inp' => 'required'
+        ]);
+
+        $insert = [
+            'sname' => $req->Name_inp,
+            'semail' => $req->Email_inp,
+            'query' => $req->Query_inp
+        ];
+
+        $insert = Query::create($insert);
+        $body = [
+            'sname' => $req->Name_inp,
+            'semail' => $req->Email_inp,
+            'query' => $req->Query_inp
+        ];
+        Mail::to('shrinitg@gmail.com')->send(new queryMail($body));
+        return redirect()->back();
+    }
+
+    public function todayReport() {
+        return Excel::download(new TodayReportExport, 'Today Report.xlsx');
+    }
+
+    public function overallReport() {
+        return Excel::download(new OverallReportExport, 'Overall Report.xlsx');
     }
 
 }
